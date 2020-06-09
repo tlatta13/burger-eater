@@ -1,0 +1,44 @@
+<div class="jumbotron">
+    <img src="/assets/images/burger-eater.png" alt="burger photo" />
+    <h1 style="text-align: center;">EAT-DA-BURGER</h1>
+</div>
+
+<div class="container-fluid">
+    <div class="card">
+        <h4>Enter a burger you would like to eat!</h4>
+        <form action="submit">
+            <input class="form-control form-control-lg" type="text" placeholder="Enter Your Burger">
+            <button type="submit">Create Burger</button>
+        </form>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 card">
+            <div class="row">
+                <div class="col-8">
+                    <h4>Burgers</h4>
+                    <div>
+                    {{!Add Burgers}}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h4>Devoured Burgers</h4>
+                    <div>
+                        {{!Add Devour Buttons}}
+                        {{#each burgers}}
+                            <p>
+                                {{this.id}}: {{this.burger}}
+                                <button>Devour It!</button>
+                            </p>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 card">
+            {{!Add Devoured Burgers}}
+        </div>
+    </div>
+</div>
