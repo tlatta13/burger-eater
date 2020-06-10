@@ -1,44 +1,37 @@
-<div class="jumbotron">
-    <img src="/assets/images/burger-eater.png" alt="burger photo" />
-    <h1 style="text-align: center;">EAT-DA-BURGER</h1>
+<div class="jumbotron justify-content-center bg-dark">
+    <img src="/assets/images/burger.png" alt="burger photo" />
+    <h1 style="color:white; text-align: center;">EAT-DA-BURGER</h1>
 </div>
 
-<div class="container-fluid">
-    <div class="card">
-        <h4>Enter a burger you would like to eat!</h4>
-        <form action="submit">
-            <input class="form-control form-control-lg" type="text" placeholder="Enter Your Burger">
+<div class="container mb-5">
+    <div class="row justify-content-center">
+    <div>
+        <h4 style="text-align: center;">Enter a burger you would like to eat!</h4>
+        <form id="newBurger">
+            <input class="form-control form-control-lg" type="text" placeholder="Enter Your Burger" name="burger">
             <button type="submit">Create Burger</button>
         </form>
     </div>
+    </div>
 </div>
 
-<div class="container-fluid">
+<div class="container justify-content-center">
     <div class="row">
-        <div class="col-6 card">
-            <div class="row">
-                <div class="col-8">
-                    <h4>Burgers</h4>
-                    <div>
-                    {{!Add Burgers}}
-                    </div>
-                </div>
-                <div class="col-4">
-                    <h4>Devoured Burgers</h4>
-                    <div>
-                        {{!Add Devour Buttons}}
-                        {{#each burgers}}
-                            <p>
-                                {{this.id}}: {{this.burger}}
-                                <button>Devour It!</button>
-                            </p>
-                        {{/each}}
-                    </div>
-                </div>
+        <div class="card col-6 justify-content-center">
+            <h4 style="text-align: center;" class="pt-3">Burgers</h4>
+            <div>
+            {{!Show Burgers}}
+                {{#each burgers}}
+                    <p class="card-body">
+                        {{this.id}}: {{this.burger}}
+                        <button class="devour-burger justify-content-right" data-burgerID="{{this.id}}">Devour It!</button>
+                    </p>
+                {{/each}}
             </div>
         </div>
-        <div class="col-6 card">
+        <div class="card col-6">
             {{!Add Devoured Burgers}}
+            <h4 style="text-align: center;" class="pt-3">Devoured Burgers</h4>
         </div>
     </div>
 </div>

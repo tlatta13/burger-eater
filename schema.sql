@@ -7,7 +7,10 @@ USE burgers_db;
 CREATE TABLE burgers (
     id INT AUTO_INCREMENT NOT NULL,
     burger VARCHAR(100) NOT NULL,
+    is_devoured BOOLEAN NOT NULL DEFAULT 0, 
     PRIMARY KEY (id)
 );
 
 INSERT INTO burgers (burger) VALUES ('The Latta Classic');
+
+SELECT * FROM plans;
