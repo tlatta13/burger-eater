@@ -1,37 +1,50 @@
 <div class="jumbotron justify-content-center bg-dark">
-    <img src="/assets/images/burger.png" alt="burger photo" />
+    <img src="/assets/images/eat-da-burger.png" alt="burger photo" class="mx-auto d-block mb-3" />
     <h1 style="color:white; text-align: center;">EAT-DA-BURGER</h1>
 </div>
 
 <div class="container mb-5">
     <div class="row justify-content-center">
-    <div>
+      <div>
         <h4 style="text-align: center;">Enter a burger you would like to eat!</h4>
-        <form id="newBurger">
-            <input class="form-control form-control-lg" type="text" placeholder="Enter Your Burger" name="burger">
-            <button type="submit">Create Burger</button>
+        <form class="newBurger">
+            <label for="newBurg">Burger Name:</label>
+            <input id="newBurg" class="form-control form-control-lg" type="text" name="burger">
+            <button type="submit btn btn-secondary">Create Burger</button>
         </form>
-    </div>
+      </div>
     </div>
 </div>
 
-<div class="container justify-content-center">
+<div class="container justify-content-center mb-5">
     <div class="row">
         <div class="card col-6 justify-content-center">
-            <h4 style="text-align: center;" class="pt-3">Burgers</h4>
-            <div>
+            <h4 style="text-align: center;" class="py-3">Burgers</h4>
+            <ul>
             {{!Show Burgers}}
                 {{#each burgers}}
-                    <p class="card-body">
-                        {{this.id}}: {{this.burger}}
-                        <button class="devour-burger justify-content-right" data-burgerID="{{this.id}}">Devour It!</button>
-                    </p>
+                    {{#unless devoured}}
+                        {{!-- {{> burgers/burger-block devoured=false}} --}}
+                        <li class="mb-3">
+                            {{this.id}}: {{this.burger}}
+                            <button class="devour-burger btn btn-secondary" data-burgerID="{{this.id}}" data-devour="{{this.devoured}}">Devour It!</button>
+                        </li>
+                    {{/unless}}
                 {{/each}}
-            </div>
+            </ul>
         </div>
         <div class="card col-6">
             {{!Add Devoured Burgers}}
             <h4 style="text-align: center;" class="pt-3">Devoured Burgers</h4>
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        <li>
+                            {{burgers}}
+                        </li>
+                    {{/if}}
+                {{/each}}
+            </ul>
         </div>
     </div>
 </div>
